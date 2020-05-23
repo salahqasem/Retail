@@ -9,5 +9,6 @@ public class NoopDiscount extends DiscountBase {
 
     @Override
     void validateTotal(double total) {
+        //do nothing, it's a noop :D
     }
 }
