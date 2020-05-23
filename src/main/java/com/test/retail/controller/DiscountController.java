@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/invoice")
 public class DiscountController {
 
-    private final Logger LOG = LoggerFactory.getLogger(DiscountController.class);
-    private ObjectMapper mapper = new ObjectMapper();
+    private static final Logger LOG = LoggerFactory.getLogger(DiscountController.class);
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
     private DiscountServiceService discountServiceService;

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/item")
 public class ItemController {
 
-    private final Logger LOG = LoggerFactory.getLogger(ItemController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemController.class);
 
     @Autowired
     private ItemService itemService;
