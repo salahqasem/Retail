@@ -1,14 +1,13 @@
 # Retail Discount Service
 
-###### Run the application
+###Run the application
 1- Clone the repo to your machine.
 
 2- From command line open the project directory and run `mvn spring-boot:run`
 
 3- open http://localhost:8080/invoice.html.
 
-
-###### Run test & reports
+### Run test & reports
 1- For unit test & jacoco report
  ~~~~
 mvn test
@@ -22,8 +21,8 @@ mvn verify sonar:sonar
 you can find the report here: https://sonarcloud.io/dashboard?id=salahqasem_Retail
 
 
-###### Add new records to database
-you can add new data to the database by to approaches:
+### Add new records to database
+you can add new data to the database by two approaches:
 
 1- add insert statements to _data.sql_ file inside _resources_ directory
 
