@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form action="/invoice/net" method="post">
+    <label for="userId">User ID</label><br>
+    <input type="text" id="userId" name="userId"/><br>
+    <div id="itemsDiv">
+
+    </div>
+    <button type="button" onclick="addItem()">Add Item</button>
+    <input type="submit" value="Calculate">
+
+</form>
+
+<script>
+    function addItem() {
+        createOptions();
+    }
+
+    function createOptions() {
+        selectCount = $("#itemsDiv > select").length;
+        $("#itemsDiv").append("<select name='items' id='item_" +selectCount+"'></select>")
+        $.get("/item/all", function(data, status){
+            for(var key in data) {
+                var option = document.createElement("option");
+                option.value = '{"name": "' + data[key].name +'", "price": ' + data[key].price + ', "type": "'
+                    +data[key].itemType.type + '"}';
+                option.text = data[key].name;
+
+                document.getElementById("item_"+selectCount).add(option);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
