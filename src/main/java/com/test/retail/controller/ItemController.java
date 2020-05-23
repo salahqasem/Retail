@@ -24,10 +24,10 @@ public class ItemController {
     @GetMapping("/all")
     public ResponseEntity<List<Item>> getAllItems() {
         try {
-            return new ResponseEntity(itemService.getAll(), HttpStatus.OK);
+            return new ResponseEntity<>(itemService.getAll(), HttpStatus.OK);
         } catch (Exception ex) {
             LOG.error(ex.getMessage(), ex);
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }

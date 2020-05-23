@@ -44,11 +44,11 @@ public class DiscountController {
                     }
                 }).collect(Collectors.toList());
 
-            return new ResponseEntity("total after discount: " + discountServiceService.calculateNetPayable(userId, items),
+            return new ResponseEntity<>("total after discount: " + discountServiceService.calculateNetPayable(userId, items),
                 HttpStatus.OK);
         } catch (Exception ex) {
             LOG.error(ex.getMessage(), ex);
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
