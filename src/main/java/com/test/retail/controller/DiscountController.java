@@ -32,7 +32,7 @@ public class DiscountController {
         consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<String> calculateNet(@RequestBody MultiValueMap<String, String> body) {
         try {
-            int userId = Integer.valueOf(body.get("userId").get(0));
+            int userId = Integer.parseInt(body.get("userId").get(0));
 
             List<ItemDto> items = body.get("items").stream()
                 .map(json -> {
