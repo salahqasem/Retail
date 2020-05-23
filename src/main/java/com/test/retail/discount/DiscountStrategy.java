@@ -12,7 +12,7 @@ public enum DiscountStrategy {
     CUSTOMER(new CustomerDiscount()),
     EMPLOYEE(new EmployeeDiscount()),
     NOOP_DISCOUNT(new NoopDiscount()),
-    Hundreds(new HundredsDiscount());
+    HUNDREDS(new HundredsDiscount());
 
     private Discount discount;
 

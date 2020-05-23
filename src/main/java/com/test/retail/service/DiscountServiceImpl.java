@@ -32,7 +32,7 @@ public class DiscountServiceImpl implements DiscountServiceService {
 
         double total = calculateTotal(items);
         double discountByUserType = discount.doDiscount(calculateTotalWithoutGrocery(items));
-        double hundredsDiscount = DiscountStrategy.Hundreds.getDiscount().doDiscount(total);
+        double hundredsDiscount = DiscountStrategy.HUNDREDS.getDiscount().doDiscount(total);
 
         return total - (discountByUserType + hundredsDiscount);
     }
