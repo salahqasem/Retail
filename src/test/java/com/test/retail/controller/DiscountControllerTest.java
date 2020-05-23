@@ -1,6 +1,6 @@
 package com.test.retail.controller;
 
-import com.test.retail.service.InvoiceService;
+import com.test.retail.service.DiscountServiceService;
 import com.test.retail.service.ItemService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +19,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@WebMvcTest(controllers = {InvoiceController.class})
-public class InvoiceControllerTest {
+@WebMvcTest(controllers = {DiscountController.class})
+public class DiscountControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private InvoiceService invoiceService;
+    private DiscountServiceService discountServiceService;
 
     @MockBean
     private ItemService itemService;
 
     @Test
     public void shouldReturnDiscount() throws Exception {
-        when(invoiceService.calculateNetPayable(anyInt(), anyList()))
+        when(discountServiceService.calculateNetPayable(anyInt(), anyList()))
             .thenReturn(5.0);
 
         mockMvc.perform(post("/invoice/net")
@@ -47,7 +47,7 @@ public class InvoiceControllerTest {
 
     @Test
     public void shouldReturnInternalServerErrorWhenDataInvalid() throws Exception {
-        when(invoiceService.calculateNetPayable(anyInt(), anyList()))
+        when(discountServiceService.calculateNetPayable(anyInt(), anyList()))
             .thenThrow(new RuntimeException());
 
         mockMvc.perform(post("/invoice/net")

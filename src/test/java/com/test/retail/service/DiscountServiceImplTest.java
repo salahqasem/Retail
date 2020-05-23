@@ -21,7 +21,7 @@ public class DiscountServiceImplTest {
 
     private UserRepository userRepository = mock(UserRepository.class);
 
-    private InvoiceService invoiceService = new DiscountServiceImpl(userRepository);
+    private DiscountServiceService discountServiceService = new DiscountServiceImpl(userRepository);
 
 
     @Test
@@ -44,7 +44,7 @@ public class DiscountServiceImplTest {
         double employeeDiscount = 15;
 
         double manualAfterDiscount = total - (hundredsDiscount + employeeDiscount);
-        double afterDiscount = invoiceService.calculateNetPayable(user.getId(), items);
+        double afterDiscount = discountServiceService.calculateNetPayable(user.getId(), items);
 
         assertThat(afterDiscount, is(manualAfterDiscount));
     }
@@ -69,7 +69,7 @@ public class DiscountServiceImplTest {
         double affiliateDiscount = 5;
 
         double manualAfterDiscount = total - (hundredsDiscount + affiliateDiscount);
-        double afterDiscount = invoiceService.calculateNetPayable(user.getId(), items);
+        double afterDiscount = discountServiceService.calculateNetPayable(user.getId(), items);
 
         assertThat(afterDiscount, is(manualAfterDiscount));
     }
@@ -94,7 +94,7 @@ public class DiscountServiceImplTest {
         double affiliateDiscount = 2.5;
 
         double manualAfterDiscount = total - (hundredsDiscount + affiliateDiscount);
-        double afterDiscount = invoiceService.calculateNetPayable(user.getId(), items);
+        double afterDiscount = discountServiceService.calculateNetPayable(user.getId(), items);
 
         assertThat(afterDiscount, is(manualAfterDiscount));
     }
@@ -118,7 +118,7 @@ public class DiscountServiceImplTest {
         double hundredsDiscount = 10;
 
         double manualAfterDiscount = total - hundredsDiscount;
-        double afterDiscount = invoiceService.calculateNetPayable(user.getId(), items);
+        double afterDiscount = discountServiceService.calculateNetPayable(user.getId(), items);
 
         assertThat(afterDiscount, is(manualAfterDiscount));
     }
@@ -141,7 +141,7 @@ public class DiscountServiceImplTest {
         double hundredsDiscount = 10;
 
         double manualAfterDiscount = total - hundredsDiscount;
-        double afterDiscount = invoiceService.calculateNetPayable(1, items);
+        double afterDiscount = discountServiceService.calculateNetPayable(1, items);
 
         assertThat(afterDiscount, is(manualAfterDiscount));
     }

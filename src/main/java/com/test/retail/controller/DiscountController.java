@@ -3,7 +3,7 @@ package com.test.retail.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test.retail.model.dto.ItemDto;
-import com.test.retail.service.InvoiceService;
+import com.test.retail.service.DiscountServiceService;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/invoice")
-public class InvoiceController {
+public class DiscountController {
 
-    private final Logger LOG = LoggerFactory.getLogger(InvoiceController.class);
+    private final Logger LOG = LoggerFactory.getLogger(DiscountController.class);
     private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    private InvoiceService invoiceService;
+    private DiscountServiceService discountServiceService;
 
     @PostMapping(path = "/net",
         consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
@@ -44,7 +44,7 @@ public class InvoiceController {
                     }
                 }).collect(Collectors.toList());
 
-            return new ResponseEntity("total after discount: " + invoiceService.calculateNetPayable(userId, items),
+            return new ResponseEntity("total after discount: " + discountServiceService.calculateNetPayable(userId, items),
                 HttpStatus.OK);
         } catch (Exception ex) {
             LOG.error(ex.getMessage(), ex);

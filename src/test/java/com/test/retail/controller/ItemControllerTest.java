@@ -1,7 +1,7 @@
 package com.test.retail.controller;
 
 import com.test.retail.model.Item;
-import com.test.retail.service.InvoiceService;
+import com.test.retail.service.DiscountServiceService;
 import com.test.retail.service.ItemService;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class ItemControllerTest {
     private ItemService itemService;
 
     @MockBean
-    private InvoiceService invoiceService;
+    private DiscountServiceService discountServiceService;
 
     @Test
     public void shouldReturnItemsAndSuccess() throws Exception {

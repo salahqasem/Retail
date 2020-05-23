@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DiscountServiceImpl implements InvoiceService {
+public class DiscountServiceImpl implements DiscountServiceService {
 
     private static final String GROCERY_ITEM_TYPE = "grocery";
     private static final String ANONYMOUS_USER_TYPE = "anonymous";
